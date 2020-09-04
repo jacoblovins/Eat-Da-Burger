@@ -1,3 +1,7 @@
+body {
+  background-color: darkcyan;
+}
+
 li {
   padding: 5px;
   margin: 5px;

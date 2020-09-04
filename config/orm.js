@@ -2,32 +2,37 @@ var connection = require("./connection.js");
 
 var orm = {
 
-  selectALl: function(tableInput) {
+  selectAll: function(tableInput, cb) {
     var query = "SELECT * FROM ??";
-    connection.query(query, [tableInput], function(err, result) {
+    return connection.query(query, [tableInput], function(err, result) {
       if (err) throw err;
-      console.log(result);
+      // console.log(result);
+      // return result
+      cb(result);
     });
   },
 
-  insertOne: function(whatToSelect, table, orderCol) {
-    var query = "SELECT ?? FROM ?? ORDER BY ?? DESC";
+  insertOne: function(table, colNames, values) {
+    var query = "INSERT INTO ?? (??) VALUES (?)" 
+ 
     // console.log(queryString);
-    connection.query(query, [whatToSelect, table, orderCol], function(err, result) {
+    connection.query(query, [table, colNames, [values]], function(err, result) {
       if (err) throw err;
       console.log(result);
+        // cb(result);
     });
   },
 
-  updateOne: function(tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
-    var query = "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";
-
-    connection.query(query, [tableOneCol, tableOneCol, tableOne, tableTwo, tableTwo, tableTwoForeignKey, tableOne, tableOneCol],function(err, result) {
-        if (err) throw err;
-        console.log(result);
+  updateOne: function(table, objColVals, colName, value) {
+    var query = "UPDATE ?? SET ? WHERE ?? = ?" 
+    console.log(queryString);
+    connection.query(query, [table, objColVals, colName, value], function(err, result) {
+      if (err) {
+        throw err;
       }
-    );
-  }
+      // cb(result);
+    });
+  },
 };
 
 module.exports = orm;
