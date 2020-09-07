@@ -1,5 +1,19 @@
 body {
   background-color: darkcyan;
+  font-size: 20px;
+}
+
+img {
+  text-align: center;
+  width: 30%;
+  height: auto;
+  justify-content: center;
+}
+
+.burgerImg {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
 }
 
 h1 {
@@ -13,17 +27,17 @@ h2 {
 }
 
 .eaten {
-  background-color: darkgoldenrod;
+  /* background-color: darkgoldenrod; */
   width: 35%;
-  
-  /* clear: both; */
+  margin-left: 10%;
 }
 
 .notEaten {
-  background-color: darkgray;
+  /* background-color: darkgray; */
   width: 35%;
   float: right;
   padding-top: 0;
+  margin-right: 10%;
 
 }
 
@@ -37,14 +51,25 @@ li {
   font-weight: bold;
 }
 
-.create-update-form {
-  padding: 5px;
-  margin: 5px;
-  background: aqua;
+.change-eat {
+  float: right;
 }
 
 .create-form {
+  margin-top: 50px;
   margin-bottom: 5px;
   clear: both;
   text-align: center;
+}
+
+#bu {
+  height: 24px;
+  width: auto;
+}
+
+.addBurger {
+  height: 30px;
+  width: auto;
+  font-size: 18px;
+  font-weight: bold;
 }
