@@ -12,25 +12,25 @@ var orm = {
     });
   },
 
-  insertOne: function(table, colNames, values) {
+  insertOne: function(table, colNames, values, cb) {
     var query = "INSERT INTO ?? (??) VALUES (?)" 
  
-    // console.log(queryString);
+    console.log(query);
     connection.query(query, [table, colNames, [values]], function(err, result) {
       if (err) throw err;
       console.log(result);
-        // cb(result);
+        cb(result);
     });
   },
 
-  updateOne: function(table, objColVals, colName, value) {
-    var query = "UPDATE ?? SET ? WHERE ?? = ?" 
-    console.log(queryString);
-    connection.query(query, [table, objColVals, colName, value], function(err, result) {
+  updateOne: function(id, cb) {
+    var query = "UPDATE burgers SET devoured = 0 WHERE id = ?" 
+    console.log(query);
+    connection.query(query, [id], function(err, result) {
       if (err) {
         throw err;
       }
-      // cb(result);
+      cb(result);
     });
   },
 };

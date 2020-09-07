@@ -1,27 +1,29 @@
-<img src="https://image.similarpng.com/very-thumbnail/2020/04/Floating-burger-PNG.png" alt="burger picture">
+{{!-- <img src="../public/assets/img/hamburger1.png" alt="burger picture"> --}}
 <h1>Eat-Da-Burger!</h1>
 
-<h2>Burgers I need to eat!</h2>
+<section class="notEaten">
+  <h2>Burgers I've eaten!</h2>
+  <ul>
+    {{#each burgers}}
+    {{#unless devoured}}
+    {{> burgers/burger-block devoured=0}}
+    {{/unless}}
+    {{/each}}
+  </ul>
+</section>
 
-<ul>
-  {{#each burgers}}
-  {{#unless notEaten}}
-  {{> burgers/burger-block notEaten=true}}
-  {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers I've eaten!</h2>
-
-<ul>
-  {{#each cats}}
-  {{#if notEaten}}
-  {{> burgers/burger-block notEaten=false}}
-  {{/if}}
-  {{/each}}
-</ul>
+<section class="eaten">
+  <h2>Burgers I need to eat!</h2>
+  <ul>
+    {{#each burgers}}
+    {{#if devoured}}
+    {{> burgers/burger-block devoured=1}}
+    {{/if}}
+    {{/each}}
+  </ul>
+</section>
 
 <form class="create-form">
-  <input type="text" id="ca" name="name">
+  <input type="text" id="bu" name="name">
   <button type="submit">Add Burger</button>
 </form>
