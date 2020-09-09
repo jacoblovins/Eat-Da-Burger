@@ -1,39 +1,45 @@
 body {
-  background-color: darkcyan;
+  background-image: url("../img/background5.png");
   font-size: 20px;
+  margin: 0;
+}
+
+.header {
+  background-image: url("../img/Burger-Restaurant-Backgrounds.jpg");
+  background-size: 100% 150%;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
 }
 
 img {
+  margin-top: 20px;
   text-align: center;
   width: 30%;
   height: auto;
   justify-content: center;
 }
 
-.burgerImg {
-  width: 100%;
-  justify-content: center;
-  text-align: center;
-}
-
 h1 {
   text-align: center;
   margin-bottom: 50px;
+  margin-top: 0;
+  color: rgb(94, 249, 94);
+  font-size: 70px;
 }
 
 h2 {
   text-align: center;
   margin-top: 0;
+  font-size: 40px;
 }
 
 .eaten {
-  /* background-color: darkgoldenrod; */
   width: 35%;
   margin-left: 10%;
 }
 
 .notEaten {
-  /* background-color: darkgray; */
   width: 35%;
   float: right;
   padding-top: 0;
