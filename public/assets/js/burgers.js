@@ -1,9 +1,12 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(() => {
-  $(".change-eat").on("click", function(event) {
+  // Update whether the burger has been eaten or not
+  $(".change-eat").on("click", function () {
     const id = $(this).data("id");
     const newEat = $(this).data("newEat");
 
+    // Get whether or not the burger selected is true or false and
+    // set it equal to newEatState
     const newEatState = {
       devoured: newEat
     };
@@ -19,10 +22,10 @@ $(() => {
     );
   });
 
+  // Adding a new burger
   $(".create-form").on("submit", event => {
-    // Make sure to preventDefault on a submit event.
     event.preventDefault();
-
+    
     const newBurger = {
       burger_name: $("#bu").val().trim(),
     };

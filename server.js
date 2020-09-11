@@ -1,11 +1,12 @@
+// Import dependencies for server to run
 const express = require("express");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers/burgers_Controller.js");
 
+// Use port 8080 if no other port assigned by server
 const PORT = process.env.PORT || 8080;
 
 const app = express();
-
 
 app.use(express.static("public"));
 
@@ -17,11 +18,10 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes and give the server access to them.
+// Give the server access to the routes.
 app.use(routes);
 
-// Start our server so that it can begin listening to client requests.
+// Start the server listening
 app.listen(PORT, function() {
-  // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);
 });

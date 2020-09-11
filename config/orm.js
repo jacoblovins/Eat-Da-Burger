@@ -1,7 +1,9 @@
+// Import database connection information
 const connection = require("./connection.js");
 
 const orm = {
 
+  // Send query to the database grabbing all burgers
   selectAll: (tableInput, cb) => {
     const query = "SELECT * FROM ??";
     return connection.query(query, [tableInput], (err, result) => {
@@ -10,6 +12,7 @@ const orm = {
     });
   },
 
+  // Insert new burger into the database
   insertOne: (table, colNames, values, cb) => {
     const query = "INSERT INTO ?? (??) VALUES (?)" 
     connection.query(query, [table, colNames, [values]], (err, result) => {
@@ -18,6 +21,7 @@ const orm = {
     });
   },
 
+  // Update burger in the database
   updateOne: (id, cb) => {
     const query = "UPDATE burgers SET devoured = 0 WHERE id = ?" 
     connection.query(query, [id], (err, result) => {
@@ -29,4 +33,5 @@ const orm = {
   },
 };
 
+// Export the orm module
 module.exports = orm;
