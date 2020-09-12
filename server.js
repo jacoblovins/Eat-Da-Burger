@@ -1,7 +1,7 @@
 // Import dependencies for server to run
 const express = require("express");
 const exphbs = require("express-handlebars");
-const routes = require("./controllers/burgers_Controller.js");
+const routes = require("./controllers/burgers_controller.js");
 
 // Use port 8080 if no other port assigned by server
 const PORT = process.env.PORT || 8080;
